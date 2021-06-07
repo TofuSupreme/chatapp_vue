@@ -1,8 +1,14 @@
+
 <template>
     <div class="grid_container">
         <div class="left_panel">
-            <span class="messenger_Logo">Messenger</span>
-
+            <div class="meseenger_header">
+            <span class="messenger_logo">
+            <font-awesome-icon icon="user-circle" class="profile_icon"/>
+                    Chat
+                    </span>
+                    </div>
+                
             <!-- Display the rooms list -->
             <ul class="room_list">
                 <li class="room"
@@ -18,9 +24,11 @@
 
         <div class="right_panel">
             <div class="user_header">
-                <span class="userName_ID">User Name</span>
+                <span class="userName_ID">
+                    <font-awesome-icon icon="user"/>
+                    User Name</span>
             </div>
-
+            <div class="messenger_body">
             <ul class="chat_box">
                 <li 
                     class="chat_box_messages"
@@ -38,18 +46,20 @@
                 placeholder="Enter message here ..."
                 v-model="input"
             />
-
-            <button @click="onSubmit">Click On Me</button>
+            <button @click="onSubmit" class="messenger_button">Send</button> 
+            </div>
         </div>
     </div>
 </template>
 
 <script>
+
 export default {
     name: 'App',
     components: {
 
     },
+    
     data() {
         return {
             input: "",
@@ -57,57 +67,57 @@ export default {
             rooms: {
                 '1': {
                     id: '1',
-                    users: ['fakeUserName','self'], // Strings
+                    users: ['UserName','self'], // Strings
                     messages: [ // Objects
                         {
-                            from: 'fakeUserName',
-                            text: 'Some text'
+                            from: 'UserName',
+                            text: 'Hello there!'
                         },
                         {
-                            from: 'fakeUserName',
-                            text: 'Some text'
+                            from: 'UserName',
+                            text: 'How is it going?'
                         },
                         {
                             from: 'self',
-                            text: 'I see you got text'
+                            text: 'Hey whats up?'
                         },
                         {
-                            from: 'fakeUserName',
-                            text: 'Some text'
+                            from: 'UserName',
+                            text: 'Nothing much!'
                         },
                         {
-                            from: 'fakeUserName',
-                            text: 'Some text'
+                            from: 'UserName',
+                            text: 'I got some good wares!'
                         },
                         {
-                            from: 'fakeUserName',
-                            text: 'New Text'
+                            from: 'self',
+                            text: 'Um.. nah, I am good'
                         },
                     ]
                 },
                 '2': {
                     id: '2',
-                    users: ['fakeUserName2','self'], // Strings
+                    users: ['UserName2','self'], // Strings
                     messages: [ // Objects
                         {
-                            from: 'fakeUserName2',
-                            text: 'Some text'
+                            from: 'UserName2',
+                            text: 'Hey there, long time no see!'
                         },
                         {
-                            from: 'fakeUserName2',
-                            text: 'Some text'
+                            from: 'UserName2',
+                            text: 'Do you remember me?'
                         },
                         {
                             from: 'self',
-                            text: 'I see you got text'
+                            text: 'Oh yeah! I remember you!'
                         },
                         {
-                            from: 'fakeUserName2',
-                            text: 'Some text'
+                            from: 'UserName2',
+                            text: 'Its been a while but...'
                         },
                         {
-                            from: 'fakeUserName2',
-                            text: 'Some text'
+                            from: 'UserName2',
+                            text: 'I got some good wares!'
                         },
                     ]
                 },
@@ -151,29 +161,56 @@ body {
 .left_panel {
     display: flex;
     flex-direction: column;
-    background: rgba(212, 216, 216, 0.48);
     opacity: 1;
     overflow: auto;
 }
 
-.messenger_Logo {
+.meseenger_header {
+    background:#ffc3d7;
+    padding: 40px;
+}
+.messenger_logo {
     color: rgba(0, 0, 0, 1);
     font-family: Roboto;
     font-weight: Bold;
     font-size: 28px;
     opacity: 1;
-    text-align: center;
-    margin-top: 50px;
+    padding: 40px;
+
+}
+
+.profile_icon {
+    padding-right: 10px;
+    margin-right: 50px;
+}
+
+.room_list {
+padding-top: 30px;
+}
+
+.room_list:hover {
+    cursor: pointer;
+}
+.room {
+    padding: 20px;
+    list-style: none;
+    font-size: 14px;
+    font-style: italic;
 }
 
 .right_panel {
         display: flex;
         flex-direction: column;
-        background: #f1d9f1;
         opacity: 1;
         overflow: hidden;
+        background-color: #c03563;
+        
 }
 
+.user_header {
+    padding: 35px;
+    background-color: #c03563
+}
 .userName_ID {
     color: rgba(0, 0, 0, 1);
     font-family: Roboto;
@@ -182,13 +219,16 @@ body {
     margin-left: 100px;
     opacity: 1;
 }
-
+.messenger_body {
+    background:#ffc3d7;
+}
 .chat_box {
-    margin: 120px 0 0 200px;
-    width: 250px;
+    margin: 50px 0 0 200px;
+    width: 225px;
     height: 250px;
-    background: rgba(255, 255, 255, 1);
-    border: 2px solid black;
+    padding-bottom: 30px;
+    padding-top: 15px;
+    background-color: white;
 }
 
 .chat_box_messages {
@@ -204,7 +244,6 @@ body {
     opacity: 1;
     overflow: hidden;
     border-radius: 30px;
-    border: none;
 }
 
 input[type="text"] {
@@ -219,5 +258,17 @@ input[type="text"]:focus {
 
 }
 
- 
+.messenger_button {
+    background-color: white;
+    border-radius: 28px;
+    height: 40px;
+    width: 125px;
+    margin-left: -50px;
+    display: inline-block;
+    cursor: pointer;
+    color: #c03563;
+    font-size: 16px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px black;
+}
 </style>
