@@ -11,6 +11,8 @@
             <ul class="chat_box">
                 <li 
                     class="chat_box_messages"
+                    :class="{'selftext': message.from == 'self', 
+                            'othertext': message.from == 'UserName'}"
                     v-for="(message, index) in rooms[selectedRoom].messages" 
                     :key="index">
                     {{ message.from }}: {{ message.text }}
@@ -19,9 +21,9 @@
 
             <input 
                 type="text" 
-                class="userMessage_text" 
-                name="userMessage_text" 
-                id="userMessage_text" 
+                class="user_text_input" 
+                name="user_text_input" 
+                id="user_text_input" 
                 placeholder="Enter message here ..."
                 v-model="input"
             />
@@ -54,14 +56,13 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .right_panel {
         display: flex;
         flex-direction: column;
         opacity: 1;
-        overflow: hidden;
-        background-color: #c03563;
-        
+        overflow: scroll;
+        background-color: #c03563;       
 }
 
 .user_header {
@@ -80,12 +81,13 @@ export default {
     background:#ffc3d7;
 }
 .chat_box {
-    margin: 50px 0 0 200px;
-    width: 225px;
-    height: 250px;
+    background-color: white;
+    height: 450px;
+    width: 500px;
+    font-size: 16px;
+    margin: 50px 0 0 100px;
     padding-bottom: 30px;
     padding-top: 15px;
-    background-color: white;
 }
 
 .chat_box_messages {
@@ -93,16 +95,14 @@ export default {
     text-align: left;
     margin-top:15px;
 }
-
-.userMessage_text {
+.user_text_input {
     width: 400px;
     height: 62px;
-    margin: 100px;
+    margin: 40px 150px 40px 150px;
     opacity: 1;
     overflow: hidden;
     border-radius: 30px;
 }
-
 input[type="text"] {
     padding-left: 15px;
     font-size: 16px;
@@ -120,13 +120,26 @@ input[type="text"]:focus {
     border-radius: 28px;
     height: 40px;
     width: 125px;
-    margin-left: -50px;
+    margin-left: -100px;
     display: inline-block;
     cursor: pointer;
     color: #c03563;
     font-size: 16px;
     text-decoration: none;
     text-shadow: 0px 1px 0px black;
+}
+.selftext {
+    background-color: #ffc3d7;
+    border-radius: 20px;
+    margin-right: 15px;
+    padding: 10px;
+}
+
+.othertext {
+    background-color: #c03563;
+    border-radius: 20px;
+    margin-right: 15px;
+    padding: 10px;
 }
 
 </style>
