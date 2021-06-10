@@ -11,8 +11,8 @@
             <ul class="chat_box">
                 <li 
                     class="chat_box_messages"
-                    :class="{'selftext': message.from == 'self', 
-                            'othertext': message.from == 'UserName'}"
+                    :class="{selftext: message.from == 'self', 
+                            othertext: message.from!='self'}"
                     v-for="(message, index) in rooms[selectedRoom].messages" 
                     :key="index">
                     {{ message.from }}: {{ message.text }}
@@ -85,7 +85,7 @@ export default {
     height: 450px;
     width: 500px;
     font-size: 16px;
-    margin: 50px 0 0 100px;
+    margin: 30px 0 0 80px;
     padding-bottom: 30px;
     padding-top: 15px;
 }
