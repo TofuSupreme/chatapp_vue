@@ -1,10 +1,12 @@
 <template>
     <div class="left_panel">
         <div class="meseenger_header">
-            <span class="messenger_logo">
+            <div class="messenger_logo">
                 <font-awesome-icon icon="user-circle" class="profile_icon" />
-                Chat
-            </span>
+                <span messenger_logo_text> Chat </span>
+                <font-awesome-icon icon="comment-alt" class="other_icon" />
+                <font-awesome-icon icon="bell" class="other_icon"/>
+            </div>
         </div>
 <!-- ="{room, isSelf: room.from == 'self'}"-->
         <ul class="room_list">
@@ -47,12 +49,14 @@ export default {
     font-weight: Bold;
     font-size: 28px;
     opacity: 1;
-    padding: 40px;
 
 }
 .profile_icon {
     padding-right: 10px;
     margin-right: 50px;
+}
+.other_icon {
+padding-right:10px;
 }
 .room_list {
 font-size: 18px;
