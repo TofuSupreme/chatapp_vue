@@ -38,7 +38,7 @@ export default {
     overflow: auto;
 }
 .meseenger_header {
-    background:#ffc3d7;
+    background:#ff758f;
     padding: 40px;
 }
 .messenger_logo {
@@ -66,6 +66,10 @@ list-style: none;
     padding: 20px;
     margin-bottom: 15px;
     list-style: none;
+}
+
+.room:hover {
+background-color: #fff0f3;
 }
 
 .user {

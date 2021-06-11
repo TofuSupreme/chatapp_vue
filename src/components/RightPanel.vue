@@ -3,7 +3,7 @@
         <div class="user_header">
             <span class="userName_ID">
                 <font-awesome-icon icon="user"/>
-                User Name
+                Tofu Supreme
             </span>
         </div>
 
@@ -62,7 +62,7 @@ export default {
         flex-direction: column;
         opacity: 1;
         overflow: scroll;
-        background-color: #c03563;       
+        background-color: #ffccd5;       
 }
 
 .user_header {
@@ -83,11 +83,10 @@ export default {
 .chat_box {
     background-color: white;
     height: 450px;
-    width: 500px;
+    width: 400px;
     font-size: 16px;
-    margin: 30px 0 0 80px;
-    padding-bottom: 30px;
-    padding-top: 15px;
+    margin: 30px 0 0 200px;
+    padding: 15px 15px 30px 15px;
 }
 
 .chat_box_messages {
@@ -122,21 +121,26 @@ input[type="text"]:focus {
     width: 125px;
     margin-left: -100px;
     display: inline-block;
-    cursor: pointer;
     color: #c03563;
     font-size: 16px;
     text-decoration: none;
     text-shadow: 0px 1px 0px black;
 }
+
+.messenger_button:hover {
+cursor: pointer;
+background-color: #fff0f3;
+}
+
 .selftext {
     background-color: #ffc3d7;
     border-radius: 20px;
-    margin-right: 15px;
+    margin-left: 40px;
     padding: 10px;
 }
 
 .othertext {
-    background-color: #c03563;
+    background-color:#ff4d6d;
     border-radius: 20px;
     margin-right: 15px;
     padding: 10px;
