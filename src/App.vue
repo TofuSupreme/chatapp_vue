@@ -1,10 +1,14 @@
 
 <template>
-    <div class="grid_container">
-        <LeftPanel :rooms="rooms" @roomSwitch="room_switch"/>
-        <RightPanel :rooms="rooms" :selectedRoom="selectedRoom" 
-            @onSubmit="onSubmit"/>
 
+    <!-- <LoginComponent v-if="!loggedIn" /> -->
+    <!-- <div v-else class="grid_container"> -->
+
+        <div class="grid_container"> 
+            <LeftPanel :rooms="rooms" @roomSwitch="room_switch"/>
+            <RightPanel :rooms="rooms" :selectedRoom="selectedRoom" 
+            @onSubmit="onSubmit"/>
+    <Login @loginInput="loginInput" />
         <!-- @eventName="functionName" -->
     </div>
 </template>
@@ -12,15 +16,22 @@
 <script>
 import LeftPanel from './components/LeftPanel.vue'
 import RightPanel from './components/RightPanel.vue'
+import Login from './components/Login.vue'
+import socket from './socket'
 
 export default {
     name: 'App',
     components: {
         LeftPanel, 
         RightPanel,
+        Login,
     },
     data() {
         return {
+            name: 'Tako',
+            // loggedIn: false,
+            //login-username state -- should be an empty string when it first starts out.
+            //when the user logs in, it will be populated with that username.
             selectedRoom: '1',
             rooms: {
                 '1': {
@@ -91,7 +102,23 @@ export default {
                 from: 'self',
                 text: input
             })
+        },
+        loginInput(username) {
+            this.name = username
+            console.log(username)
+            // loggedIn = true
+        },
+
+        handleNewMessage(message) {
+            console.log({message})
         }
+    },
+    created: function() {
+        console.log("Starting a connection")
+        socket.connect()
+
+        socket.on('message', this.handleNewMessage)
+        socket.emit('toTheServer', 'hello from the otherside')
     }
 }
 </script>
