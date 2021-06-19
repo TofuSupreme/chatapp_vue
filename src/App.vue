@@ -3,12 +3,13 @@
 
     <!-- <LoginComponent v-if="!loggedIn" /> -->
     <!-- <div v-else class="grid_container"> -->
-
-        <div class="grid_container"> 
+        <Login v-if="!loggedIn" 
+            @loginInput="loginInput"/>
+        <div v-else class="grid_container"> 
             <LeftPanel :rooms="rooms" @roomSwitch="room_switch"/>
             <RightPanel :rooms="rooms" :selectedRoom="selectedRoom" 
             @onSubmit="onSubmit"/>
-    <Login @loginInput="loginInput" />
+    <!-- <Login @loginInput="loginInput" /> -->
         <!-- @eventName="functionName" -->
     </div>
 </template>
@@ -29,7 +30,7 @@ export default {
     data() {
         return {
             name: 'Tako',
-            // loggedIn: false,
+            loggedIn: false,
             //login-username state -- should be an empty string when it first starts out.
             //when the user logs in, it will be populated with that username.
             selectedRoom: '1',
@@ -106,7 +107,7 @@ export default {
         loginInput(username) {
             this.name = username
             console.log(username)
-            // loggedIn = true
+            this.loggedIn = true;
         },
 
         handleNewMessage(message) {
@@ -116,7 +117,6 @@ export default {
     created: function() {
         console.log("Starting a connection")
         socket.connect()
-
         socket.on('message', this.handleNewMessage)
         socket.emit('toTheServer', 'hello from the otherside')
     }

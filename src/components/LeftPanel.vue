@@ -56,11 +56,11 @@ export default {
     margin-right: 50px;
 }
 .other_icon {
-padding-right:10px;
+    padding-right:10px;
 }
 .room_list {
-font-size: 18px;
-list-style: none;
+    font-size: 18px;
+    list-style: none;
 }
 
 .room_list:hover {
@@ -73,7 +73,7 @@ list-style: none;
 }
 
 .room:hover {
-background-color: #fff0f3;
+    background-color: #fff0f3;
 }
 
 .user {

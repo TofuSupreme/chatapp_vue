@@ -57,12 +57,13 @@ export default {
 </script>
 
 <style>
+
 .right_panel {
-        display: flex;
-        flex-direction: column;
-        opacity: 1;
-        overflow: scroll;
-        background-color: #ffccd5;       
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+    overflow: scroll;
+    background-color: #ffccd5;       
 }
 
 .user_header {
