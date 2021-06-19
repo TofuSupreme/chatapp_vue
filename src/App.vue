@@ -29,7 +29,6 @@ export default {
     },
     data() {
         return {
-            name: 'Tako',
             loggedIn: false,
             //login-username state -- should be an empty string when it first starts out.
             //when the user logs in, it will be populated with that username.
@@ -102,12 +101,14 @@ export default {
             this.rooms[this.selectedRoom].messages.push({
                 from: 'self',
                 text: input
-            })
+                })
+            socket.emit('submitMessages', input)
         },
         loginInput(username) {
             this.name = username
-            console.log(username)
+            console.log({username})
             this.loggedIn = true;
+            socket.emit('loginUser', username)
         },
 
         handleNewMessage(message) {
@@ -119,7 +120,7 @@ export default {
         socket.connect()
         socket.on('message', this.handleNewMessage)
         socket.emit('toTheServer', 'hello from the otherside')
-    }
+    },
 }
 </script>
 
