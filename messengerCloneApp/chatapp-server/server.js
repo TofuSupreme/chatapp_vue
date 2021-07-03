@@ -32,11 +32,10 @@ const messagesModel = mongoose.model('messages', messagesSchema)
 //create the users schema 
 
 const userSchema = new mongoose.Schema({
-    id: String,
-    users: [String]
+    username: String,
 })
 
-const userModel = mongoose.model('users', userSchema)
+const userModel = mongoose.model('usernames', userSchema)
 //TODO: Retrieve bulk data from API and the real time chat will be through websockets 
 //TODO: Make the front-end work again
 
@@ -47,7 +46,7 @@ app.get('/rooms', async (req, res) => {
     } catch (err) {
         console.error(err)
     }
-    
+    // res.send(rooms)
     console.log(rooms)
 
     // return the json 
@@ -58,10 +57,12 @@ app.get('/users', async(req, res) => {
     let users
     try {
         users = await userModel.find({}).exec()
+        
     } catch (err) {
         console.error(err)
     }
-    console.log(`Here are the ${users}`)
+    // res.send(users)
+    console.log(users)
 })
 
 //LOOK AT THIS FOR AN EXAMPLE.
@@ -72,7 +73,7 @@ app.get('/messages', async (req, res) => {
     } catch (err) {
         console.error(err)
     }
-    
+    // res.send(messages)
     console.log(messages)
 
     // return the json
