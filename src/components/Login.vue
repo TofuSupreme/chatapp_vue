@@ -1,9 +1,10 @@
 <template>
     <div class="login_input">
-    <input type="text" class="login_user" name="login_user" id="login_user" placeholder="Username"
-    v-model="username">
-    <button @click="handleClicked"
-        class="login_sumbit"> Submit
+        <input type="text" class="login_user" name="login_user" id="login_user" placeholder="Username"
+        v-model="username">
+
+        <button @click="handleClicked"
+            class="login_sumbit"> Submit
         </button>
     </div>
 </template>

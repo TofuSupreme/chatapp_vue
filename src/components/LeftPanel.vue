@@ -9,7 +9,7 @@
             </div>
         </div>
 <!-- ="{room, isSelf: room.from == 'self'}"-->
-        <ul class="room_list">
+        <ul class="room_list" v-if="Object.keys(rooms).length !== 0">
             <li class="room"
                 :class="{ 'user': room.users}"
                 @click="$emit('roomSwitch', room.id)"

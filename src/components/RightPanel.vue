@@ -3,16 +3,16 @@
         <div class="user_header">
             <span class="userName_ID">
                 <font-awesome-icon icon="user"/>
-                Tofu Supreme
+                    {{ username }}
             </span>
         </div>
 
-        <div class="messenger_body">
+        <div class="messenger_body" v-if="Object.keys(rooms).length !== 0">
             <ul class="chat_box">
                 <li 
                     class="chat_box_messages"
-                    :class="{selftext: message.from == 'self', 
-                            othertext: message.from!='self'}"
+                    :class="{selftext: message.from == username, 
+                            othertext: message.from != username}"
                     v-for="(message, index) in rooms[selectedRoom].messages" 
                     :key="index">
                     {{ message.from }}: {{ message.text }}
@@ -40,6 +40,7 @@ export default {
     props: {
         rooms: Object,
         selectedRoom: String,
+        username: String,
     },
     data(){
         return {
