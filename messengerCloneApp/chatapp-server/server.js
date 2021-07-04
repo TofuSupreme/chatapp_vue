@@ -46,7 +46,7 @@ app.get('/rooms', async (req, res) => {
     } catch (err) {
         console.error(err)
     }
-    // res.send(rooms)
+    res.send(rooms)
     console.log(rooms)
 
     // return the json 
@@ -61,7 +61,7 @@ app.get('/users', async(req, res) => {
     } catch (err) {
         console.error(err)
     }
-    // res.send(users)
+    res.send(users)
     console.log(users)
 })
 
@@ -73,7 +73,7 @@ app.get('/messages', async (req, res) => {
     } catch (err) {
         console.error(err)
     }
-    // res.send(messages)
+    res.send(messages)
     console.log(messages)
 
     // return the json
