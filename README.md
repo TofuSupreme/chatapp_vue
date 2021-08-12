@@ -4,5 +4,6 @@ While experimenting with **Vue.js** and learning a bit about websockets, I came 
 
 My next step is to create a log-in feature, clean up the styles, and add different usernames. 
 
-What I used: **Vue.js, Socket.io, FontAwesome, JavaScript, HTML, CSS **
+## What I used:
+**Vue.js, Socket.io, FontAwesome, JavaScript, HTML, CSS**
 
