@@ -1,24 +1,8 @@
-# chatapp
+# Chat App
 
-## Project setup
-```
-npm install
-```
+While experimenting with **Vue.js** and learning a bit about websockets, I came up with a simple chat app. The user (on the right hand side) can send a message to two different users within the chat app. This is an incomplete project. 
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+My next step is to create a log-in feature, clean up the styles, and add different usernames. 
 
-### Compiles and minifies for production
-```
-npm run build
-```
+What I used: **Vue.js, Socket.io, FontAwesome, JavaScript, HTML, CSS **
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
